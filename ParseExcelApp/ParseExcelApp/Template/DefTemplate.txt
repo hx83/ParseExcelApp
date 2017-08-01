@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+
+
+public class $classname
+{
+$prop
+
+	public void Read(ByteArray buf)
+	{
+$content
+	}
+    
+}

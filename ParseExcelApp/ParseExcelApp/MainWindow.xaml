@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="ParseExcelApp.MainWindow"
+        Title="打表工具" Height="720" Width="525">
+    <Grid>
+        <Button Content="浏览" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Click="SelectExcelFile"/>
+        <TextBlock  Margin="10,13,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="69" Text="导入文件：" TextAlignment="Right"/>
+        <TextBox Name="importFileTxt" Height="23" Margin="84,10,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsEnabled="False"/>
+        <Button Content="浏览" Margin="0,38,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75" Click="SelectSavePath"/>
+        <TextBlock  Margin="10,41,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="69" Text="导出目录：" TextAlignment="Right"/>
+        <TextBox Name="exportPathTxt" Height="23" Margin="84,38,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsEnabled="False"/>
+        <Button Content="解析" HorizontalAlignment="Left" Margin="432,94,0,0" VerticalAlignment="Top" Width="75" Click="Parse"/>
+
+        <TextBox Name="clsTxt" TextWrapping="Wrap" Margin="10,121,10,10"  AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"/>
+    </Grid>
+</Window>
