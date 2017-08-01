@@ -90,7 +90,10 @@ namespace ParseExcelApp
         private void Parse(object sender, RoutedEventArgs e)
         {
             if (filePath == "" || savePath == "")
+            {
+                clsTxt.Text = "请选择文件和输出路径！";
                 return;
+            }
 
             xmlInfoList.Clear();
             columnList.Clear();
@@ -133,6 +136,12 @@ namespace ParseExcelApp
         private void ReadExcel()
         {   
             Excel.Application excel = new Excel.Application();
+            if (File.Exists(excelFilePath) == false)
+            {
+                clsTxt.Text = "excel文件不存在！";
+                return;
+            }
+
             Excel.Workbook wb = excel.Workbooks.Open(excelFilePath);
             //取得第一个工作薄  
             Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets.get_Item(1);
@@ -168,13 +177,19 @@ namespace ParseExcelApp
                     XmlNodeInfo info = xmlInfoList[j];
                     if(info.type == "int")
                     {
-                        int intvalue = Convert.ToInt32(ws.Cells[i, columnList[j]].Text);
+                        string str = (string)ws.Cells[i, columnList[j]].Text;
+                        if (str == "")
+                            str = "0";
+                        int intvalue = Convert.ToInt32(str);
                         Console.WriteLine(intvalue);
                         byteArr.WriteSignedInt(intvalue);
                     }
                     else if(info.type == "float")
                     {
-                        float floatvalue = float.Parse(ws.Cells[i, columnList[j]].Text);
+                        string str = (string)ws.Cells[i, columnList[j]].Text;
+                        if (str == "")
+                            str = "0";
+                        float floatvalue = float.Parse(str);
                         Console.WriteLine(floatvalue);
                         byteArr.WriteBytes(BitConverter.GetBytes(floatvalue), 4);
                     }

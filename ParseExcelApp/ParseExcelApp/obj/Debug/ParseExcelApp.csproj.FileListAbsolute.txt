@@ -15,4 +15,3 @@ D:\work\FO\VSProjects\ParseExcel\ParseExcelApp\ParseExcelApp\obj\Debug\ParseExce
 D:\work\FO\VSProjects\ParseExcel\ParseExcelApp\ParseExcelApp\obj\Debug\ParseExcelApp.application
 D:\work\FO\VSProjects\ParseExcel\ParseExcelApp\ParseExcelApp\obj\Debug\ParseExcelApp.exe
 D:\work\FO\VSProjects\ParseExcel\ParseExcelApp\ParseExcelApp\obj\Debug\ParseExcelApp.pdb
-D:\work\FO\VSProjects\ParseExcel\ParseExcelApp\ParseExcelApp\obj\Debug\ParseExcelApp.csprojResolveAssemblyReference.cache
