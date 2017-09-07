@@ -12,6 +12,7 @@
         <TextBox Name="exportPathTxt" Height="23" Margin="84,38,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" IsEnabled="False"/>
         <Button Content="解析" HorizontalAlignment="Left" Margin="432,94,0,0" VerticalAlignment="Top" Width="75" Click="Parse"/>
 
-        <TextBox Name="clsTxt" TextWrapping="Wrap" Margin="10,121,10,10"  AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"/>
+        <TextBox Name="clsTxt" TextWrapping="Wrap" Margin="10,121,10,179"  AcceptsReturn="True"  VerticalScrollBarVisibility="Visible"/>
+        <TextBox x:Name="warningTxt" TextWrapping="Wrap" Margin="10,516,10,10"  AcceptsReturn="True"  VerticalScrollBarVisibility="Visible" IsEnabled="False"/>
     </Grid>
 </Window>

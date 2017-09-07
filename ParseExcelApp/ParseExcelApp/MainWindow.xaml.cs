@@ -40,12 +40,15 @@ namespace ParseExcelApp
 
         private List<XmlNodeInfo> xmlInfoList;
         private List<int> columnList;
+
+        private List<string> warningList;
         public MainWindow()
         {
             InitializeComponent();
 
             columnList = new List<int>();
             xmlInfoList = new List<XmlNodeInfo>();
+            warningList = new List<string>();
 
 
             cachePath = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\data.txt";
@@ -97,6 +100,7 @@ namespace ParseExcelApp
 
             xmlInfoList.Clear();
             columnList.Clear();
+            warningList.Clear();
 
             FileStream fs = File.OpenRead(filePath);
             
@@ -180,7 +184,18 @@ namespace ParseExcelApp
                         string str = (string)ws.Cells[i, columnList[j]].Text;
                         if (str == "")
                             str = "0";
-                        int intvalue = Convert.ToInt32(str);
+                        int intvalue = 0;
+                        
+                        try
+                        {
+                            intvalue = Convert.ToInt32(str);
+
+                        }
+                        catch (Exception)
+                        {
+                            warningList.Add("int 解析错误 已赋值为 0 ---- 字段名称：" + info.excelName + "  错误值：" + str);
+                            //throw;
+                        }
                         Console.WriteLine(intvalue);
                         byteArr.WriteSignedInt(intvalue);
                     }
@@ -189,7 +204,17 @@ namespace ParseExcelApp
                         string str = (string)ws.Cells[i, columnList[j]].Text;
                         if (str == "")
                             str = "0";
-                        float floatvalue = float.Parse(str);
+                        float floatvalue = 0;
+                        try
+                        {
+                            floatvalue = float.Parse(str);
+
+                        }
+                        catch (Exception)
+                        {
+                            warningList.Add("float 解析错误 已赋值为 0 ---- 字段名称：" + info.excelName + "  错误值：" + str);
+                            //throw;
+                        }
                         Console.WriteLine(floatvalue);
                         byteArr.WriteBytes(BitConverter.GetBytes(floatvalue), 4);
                     }
@@ -258,6 +283,14 @@ namespace ParseExcelApp
 
             clsTxt.Text = classTemp;
 
+
+            string warning = "";
+            foreach (var item in warningList)
+            {
+                warning += item + "\r";
+            }
+
+            warningTxt.Text = warning;
             //ByteArray by = new ByteArray();
             //by.WriteUTFBytes(classTemp, classTemp.Length);
             //byte[] strbytes = classTemp.to;

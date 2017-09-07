@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ParseExcelApp.exe" size="319488">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ParseExcelApp.exe" size="320000">
       <assemblyIdentity name="ParseExcelApp" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>UZu45cLNr507nnyoOE9JdrdXTbc=</dsig:DigestValue>
+        <dsig:DigestValue>Xt9IS6UvI+c+8X3JveeIglHTC94=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
